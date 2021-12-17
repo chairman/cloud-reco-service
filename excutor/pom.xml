@@ -12,7 +12,7 @@
     <artifactId>passjava-excutor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>excutor</name>
-    <description>佳必过-第三方服务</description>
+    <description>推荐服务执行层</description>
 
     <properties>
         <java.version>1.8</java.version>
