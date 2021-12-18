@@ -13,8 +13,8 @@ import java.util.List;
 public class Rules implements InitializingBean {
     private static Logger logger = LoggerFactory.getLogger(Rules.class);
 
-    @Resource
-    private RuleService ruleService;
+//    @Resource
+//    private RuleService ruleService;
 
     private List<Rule> rules;
 

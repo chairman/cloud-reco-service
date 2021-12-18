@@ -1,5 +1,7 @@
 package reco.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +16,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("/reco/config/v1")
 public class ConfigController {
+
+    @Autowired
+    public MongoTemplate mongoTemplate;
 
     @RequestMapping(value="/executors",method = RequestMethod.GET)
     @ResponseBody

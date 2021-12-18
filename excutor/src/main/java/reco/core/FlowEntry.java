@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 public class FlowEntry {
     private final Logger logger = LoggerFactory.getLogger(FlowEntry.class);
 
-    @Autowired
-    private Rules rules;
+//    @Autowired
+//    private Rules rules;
 
     public RecoResponse process(Context context){
         try {
