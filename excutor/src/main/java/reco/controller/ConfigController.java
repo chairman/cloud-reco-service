@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import reco.common.utils.R;
 import reco.core.BuilderParam;
 import reco.core.ReturnType;
-
+import reco.core.rule.dao.IdsRepository;
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +17,8 @@ import java.util.Map;
 @RequestMapping("/reco/config/v1")
 public class ConfigController {
 
+    @Resource
+    private IdsRepository userRepository;
     @Autowired
     public MongoTemplate mongoTemplate;
 
