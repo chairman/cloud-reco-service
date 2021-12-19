@@ -1,10 +1,22 @@
 package reco.core;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+
 public class Context {
     private State state;
     RecoRequest recoRequest;
     RecoResult recoResult;
     private Executor executor;
+    StringRedisTemplate redisTemplate;
+
+    public StringRedisTemplate getRedisTemplate() {
+        return redisTemplate;
+    }
+
+    public void setRedisTemplate(StringRedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     public Executor getExecutor() {
         return executor;
@@ -14,9 +26,10 @@ public class Context {
         this.executor = executor;
     }
 
-    public Context(RecoRequest recoRequest) {
+    public Context(RecoRequest recoRequest,StringRedisTemplate redisTemplate) {
         this.state = new State(recoRequest.params);
         this.recoRequest = recoRequest;
+        this.redisTemplate = redisTemplate;
     }
 
     public void setState(State state) {

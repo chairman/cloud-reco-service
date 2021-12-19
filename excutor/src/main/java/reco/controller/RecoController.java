@@ -23,7 +23,7 @@ public class RecoController {
     ) {
         RecoRequest recoRequest = new RecoRequest();
         recoRequest.setParams(params);
-        Context context = new Context(recoRequest);
+        Context context = new Context(recoRequest,redisTemplate);
         return flowEntry.process(context);
     }
 
@@ -34,7 +34,7 @@ public class RecoController {
     ) {
         RecoRequest recoRequest = new RecoRequest();
         recoRequest.setParams(params);
-        Context context = new Context(recoRequest);
+        Context context = new Context(recoRequest,redisTemplate);
         redisTemplate.opsForValue().set("zxj","222222");
         return flowEntry.process(context);
     }

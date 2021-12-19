@@ -22,6 +22,7 @@ public class UvExcutor extends AbstractExcutor {
     @Override
     public void process(Context context) {
         logger.info("打印一下日志");
+        context.getRedisTemplate().opsForValue().set("zcw","cccc");
     }
 
     @Override
