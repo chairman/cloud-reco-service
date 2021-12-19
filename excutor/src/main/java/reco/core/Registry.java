@@ -51,6 +51,16 @@ public class Registry {
         return builder.build(params);
     }
 
+    private Map<String,Builder<ParameterizedFilter>> filterMap = new HashMap<>();
+
+    public static Map<String,Builder<ParameterizedFilter>> getFilterMap(){
+        return getInstance().filterMap;
+    }
+
+    public static void addFilter(Builder<ParameterizedFilter> builder){
+        getInstance().filterMap.put(builder.getName(),builder);
+    }
+
     private static Registry getInstance(){
         if(instance == null){
             synchronized (Registry.class){
