@@ -1,5 +1,7 @@
 package reco.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import reco.core.*;
 import javax.annotation.Resource;
@@ -11,6 +13,8 @@ public class RecoController {
 
     @Resource
     private FlowEntry flowEntry;
+    @Autowired
+    StringRedisTemplate redisTemplate;
 
     @RequestMapping(value="/fetchIds",method = RequestMethod.POST)
     @ResponseBody
@@ -31,6 +35,7 @@ public class RecoController {
         RecoRequest recoRequest = new RecoRequest();
         recoRequest.setParams(params);
         Context context = new Context(recoRequest);
+        redisTemplate.opsForValue().set("zxj","222222");
         return flowEntry.process(context);
     }
 }

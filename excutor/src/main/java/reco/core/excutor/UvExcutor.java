@@ -36,48 +36,38 @@ public class UvExcutor extends AbstractExcutor {
 
     static {
         Registry.addExecutor(new Builder<ParameterizedExecutor>() {
-                                 private final Logger logger = LoggerFactory.getLogger(getClass());
+            private final Logger logger = LoggerFactory.getLogger(getClass());
 
-                                 @Override
-                                 public List<BuilderParam> getParams() {
-                                     return Arrays.asList(
-                                             new BuilderParam("id", BuilderParam.Type.STRING, "", null),
-                                             new BuilderParam("type", BuilderParam.Type.STRING, "", null)
-                                     );
-                                 }
+            @Override
+            public List<BuilderParam> getParams() {
+                return Arrays.asList(
+                    new BuilderParam("id", BuilderParam.Type.STRING, "", null),
+                    new BuilderParam("type", BuilderParam.Type.STRING, "", null)
+                );
+            }
 
-                                 @Override
-                                 public ParameterizedExecutor build(JsonNode params) {
-                                     try {
-                                         String id = params.get("id").asText();
-                                         String type = params.get("type").asText();
+            @Override
+            public ParameterizedExecutor build(JsonNode params) {
+                try {
+                    String id = params.get("id").asText();
+                    String type = params.get("type").asText();
 
-                                         ArrayNode list = (ArrayNode) params.withArray("children");
-                                         ParameterizedExecutor[] executors = new ParameterizedExecutor[list.size()];
-                                         for (int i = 0; i < list.size(); i++) {
-                                             JsonNode toJsonNode = list.get(i);
-                                             executors[i] = Registry.parseExecutor(toJsonNode);
-                                             if (executors[i] == null) return null;
-                                         }
+                    return (context) -> {
+                        try {
+                            return new UvExcutor(id,type);
+                        } catch (Exception e1) {
+                            return null;
+                        }
+                    };
+                } catch (Exception e) {
+                    return null;
+                }
+            }
 
-                                         return (context) -> {
-                                             try {
-                                                 return new UvExcutor(id,type);
-                                             } catch (Exception e1) {
-                                                 return null;
-                                             }
-                                         };
-                                     } catch (Exception e) {
-                                         return null;
-                                     }
-                                 }
-
-                                 @Override
-                                 public String getName() {
+            @Override
+            public String getName() {
                                      return "uvexecutor";
                                  }
-                             }
-
-        );
+        });
     }
 }
