@@ -1,4 +1,4 @@
-package reco.core.rule;
+package reco.core.rule.service;
 
 import reco.core.rule.model.RuleConfig;
 import java.util.List;

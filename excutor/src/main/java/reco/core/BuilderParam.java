@@ -40,4 +40,11 @@ public class BuilderParam {
     public enum Type{
         LIST,STRING,INT,FLOAT,ENUM,TEMPLATE
     }
+
+    public BuilderParam(String name, Type type, String desc, String[] values) {
+        this.name = name;
+        this.type = type;
+        this.desc = desc;
+        this.values = values;
+    }
 }

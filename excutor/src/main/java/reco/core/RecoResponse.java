@@ -1,16 +1,16 @@
 package reco.core;
 
 public class RecoResponse {
-    private RecoRequest recoRequest;
+    private RecoResult recoResult;
 
     public RecoResponse() {
     }
 
-    public RecoRequest getRecoRequest() {
-        return recoRequest;
+    public RecoResult getRecoResult() {
+        return recoResult;
     }
 
-    public void setRecoRequest(RecoRequest recoRequest) {
-        this.recoRequest = recoRequest;
+    public void setRecoResult(RecoResult recoResult) {
+        this.recoResult = recoResult;
     }
 }

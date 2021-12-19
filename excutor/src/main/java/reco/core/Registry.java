@@ -21,7 +21,7 @@ public class Registry {
         return executorMap;
     }
 
-    public void addExecutor(Builder<ParameterizedExecutor> builder) {
+    public static void addExecutor(Builder<ParameterizedExecutor> builder) {
         getInstance().executorMap.put(builder.getName(), builder);
     }
 
@@ -65,7 +65,15 @@ public class Registry {
 
     private static String[] allClass = new String[]{
             "reco.core.excutor.UvExcutor",
-            "reco.core.excutor.Order"
+            "reco.core.excutor.Order",
+            "reco.core.selector.And",
+            "reco.core.selector.Eq",
+            "reco.core.selector.Gt",
+            "reco.core.selector.Gte",
+            "reco.core.selector.Lt",
+            "reco.core.selector.Lte",
+            "reco.core.selector.Or",
+            "reco.core.selector.True"
     };
 
     private void init(){

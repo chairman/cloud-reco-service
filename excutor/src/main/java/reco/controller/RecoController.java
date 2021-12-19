@@ -1,18 +1,12 @@
 package reco.controller;
 
-import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.web.bind.annotation.*;
-import reco.core.BuilderParam;
-import reco.core.FlowEntry;
-import reco.core.RecoRequest;
-import reco.core.ReturnType;
-
+import reco.core.*;
 import javax.annotation.Resource;
-import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/reco/novel/v1")
+@RequestMapping("/reco/works/v1")
 public class RecoController {
 
     @Resource
@@ -20,24 +14,23 @@ public class RecoController {
 
     @RequestMapping(value="/fetchIds",method = RequestMethod.POST)
     @ResponseBody
-    public ReturnType<Map<String, List<BuilderParam>>> fetchIds(
-            @RequestBody RecoRequest recoRequest,
-            ServletServerHttpResponse response
+    public RecoResponse fetchIds(
+            @RequestBody Map<String, Object> params
     ) {
-        try {
-            return new ReturnType<Map<String, List<BuilderParam>>>(-1,null,null);
-        }catch (Exception e){
-            return new ReturnType<Map<String, List<BuilderParam>>>(-1,e.getMessage());
-        }
+        RecoRequest recoRequest = new RecoRequest();
+        recoRequest.setParams(params);
+        Context context = new Context(recoRequest);
+        return flowEntry.process(context);
     }
 
-    @RequestMapping(value="/selectors",method = RequestMethod.GET)
+    @RequestMapping(value="/fetchIds2",method = RequestMethod.GET)
     @ResponseBody
-    public ReturnType<Map<String, List<BuilderParam>>> selectors() {
-        try {
-            return new ReturnType<Map<String, List<BuilderParam>>>(-1,null,null);
-        }catch (Exception e){
-            return new ReturnType<Map<String, List<BuilderParam>>>(-1,e.getMessage());
-        }
+    public RecoResponse fetchIds2(
+            @RequestParam Map<String, Object> params
+    ) {
+        RecoRequest recoRequest = new RecoRequest();
+        recoRequest.setParams(params);
+        Context context = new Context(recoRequest);
+        return flowEntry.process(context);
     }
 }
