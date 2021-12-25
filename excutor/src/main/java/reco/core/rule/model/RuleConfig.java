@@ -5,6 +5,7 @@ public class RuleConfig {
     private int order;
     private String executor;
     private String selector;
+    private String filters;
     private String description;
     private long lastUpdateTime;
     private String op;
@@ -38,6 +39,14 @@ public class RuleConfig {
 
     public void setSelector(String selector) {
         this.selector = selector;
+    }
+
+    public String getFilters() {
+        return filters;
+    }
+
+    public void setFilters(String filters) {
+        this.filters = filters;
     }
 
     public String getDescription() {
