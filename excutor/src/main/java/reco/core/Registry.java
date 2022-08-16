@@ -63,9 +63,14 @@ public class Registry {
 
     private static Registry getInstance(){
         if(instance == null){
+            //检测是否为空，如果为空则进入创建步骤，否则返回
+            // （这里面有一个坑：如果没使用volatie修饰instance，A线程的里面做了指令的重排序，
+            // 那么B得到的可能是一个非空未初始化的变量，返回回去导致调用端的一些异常情况,volatie避免了这种情况的发生）
             synchronized (Registry.class){
                 if(null == instance){
+                    //防止A线程初始化之后，B获得类锁再次进来，又做了下面两步
                     instance = new Registry();
+                    //里面具体的类还是会有重排序的问题，有可能reco.core.excutor.UvExcutor...等还未初始化，所以在外层需要做判空
                     instance.init();
                 }
             }
