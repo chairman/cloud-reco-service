@@ -9,10 +9,10 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @RefreshScope
 @EnableDiscoveryClient
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class PassjavaThirdpartyApplication {
+public class ExecutorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PassjavaThirdpartyApplication.class, args);
+        SpringApplication.run(ExecutorApplication.class, args);
     }
 
 }
