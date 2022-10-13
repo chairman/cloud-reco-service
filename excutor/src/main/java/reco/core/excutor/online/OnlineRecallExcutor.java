@@ -1,25 +1,24 @@
-package reco.core.excutor;
+package reco.core.excutor.online;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reco.core.*;
-
+import reco.core.excutor.AbstractExcutor;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * 千人前脸算法数据获取与推荐逻辑执行器
+ * 在线召回执行器，就是拿回已经推过的数据重新推荐 调用算法的jni接口c++版本的tensorflow（之所以要调用jni，tensorflow-java支持不了这类模型）
  * @author Tommy.Z
  * @date 2022年10月13日 09:08
  */
-public class UvExcutor extends AbstractExcutor {
-    private final Logger logger = LoggerFactory.getLogger(UvExcutor.class);
+public class OnlineRecallExcutor extends AbstractExcutor {
+    private final Logger logger = LoggerFactory.getLogger(OnlineRecallExcutor.class);
     private String id;
     private String type;
 
-    public UvExcutor(String id, String type) {
+    public OnlineRecallExcutor(String id, String type) {
         this.id = id;
         this.type = type;
     }
@@ -64,7 +63,7 @@ public class UvExcutor extends AbstractExcutor {
 
                     return (context) -> {
                         try {
-                            return new UvExcutor(id,type);
+                            return new OnlineRecallExcutor(id,type);
                         } catch (Exception e1) {
                             return null;
                         }

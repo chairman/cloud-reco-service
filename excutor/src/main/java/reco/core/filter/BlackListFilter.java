@@ -9,22 +9,22 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 针对删除资源的过滤
+ * 针对黑名单的过滤（黑名单可以放MYSQL、配置中心等方式）
  * @author Tommy.Z
  * @date 2022年10月13日 09:08
  */
-public class DeleteFilter extends AbstractFilter {
+public class BlackListFilter extends AbstractFilter {
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private String id;
     private String type;
 
-    public DeleteFilter(String id, String type) {
+    public BlackListFilter(String id, String type) {
         this.id = id;
         this.type = type;
     }
 
     /**
-     * 初始化实现，例如把数据库的ID加到内存里面来
+     * 初始化实现，例如把ID加到内存里面来
      * @param context
      */
     @Override
@@ -86,7 +86,7 @@ public class DeleteFilter extends AbstractFilter {
 
                     return (context) ->{
                         try {
-                            return new DeleteFilter(id,type);
+                            return new BlackListFilter(id,type);
                         }catch (Exception e){
                             return null;
                         }

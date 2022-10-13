@@ -18,8 +18,8 @@ import java.util.Map;
 
 /**
  * 查询参数
- *
- * @author Mark sunlightcs@gmail.com
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
  */
 public class Query<T> {
 

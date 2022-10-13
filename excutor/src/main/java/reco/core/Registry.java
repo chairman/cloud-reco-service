@@ -61,6 +61,7 @@ public class Registry {
         getInstance().filterMap.put(builder.getName(),builder);
     }
 
+    //单例模式的应用
     private static Registry getInstance(){
         if(instance == null){
             //检测是否为空，如果为空则进入创建步骤，否则返回

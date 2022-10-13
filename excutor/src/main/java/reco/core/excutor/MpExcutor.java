@@ -1,25 +1,23 @@
 package reco.core.excutor;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reco.core.*;
-
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * 千人前脸算法数据获取与推荐逻辑执行器
+ * 通用类的数据，主要为了补充Uv/Sv数据不够的情况
  * @author Tommy.Z
  * @date 2022年10月13日 09:08
  */
-public class UvExcutor extends AbstractExcutor {
-    private final Logger logger = LoggerFactory.getLogger(UvExcutor.class);
+public class MpExcutor extends AbstractExcutor {
+    private final Logger logger = LoggerFactory.getLogger(MpExcutor.class);
     private String id;
     private String type;
 
-    public UvExcutor(String id, String type) {
+    public MpExcutor(String id, String type) {
         this.id = id;
         this.type = type;
     }
@@ -27,7 +25,7 @@ public class UvExcutor extends AbstractExcutor {
     @Override
     public void process(Context context) {
         logger.info("打印一下日志");
-//        context.getRedisTemplate().opsForValue().set("zcw","cccc");
+        context.getRedisTemplate().opsForValue().set("zcw","cccc");
     }
 
     @Override
@@ -64,7 +62,7 @@ public class UvExcutor extends AbstractExcutor {
 
                     return (context) -> {
                         try {
-                            return new UvExcutor(id,type);
+                            return new MpExcutor(id,type);
                         } catch (Exception e1) {
                             return null;
                         }

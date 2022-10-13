@@ -1,25 +1,25 @@
-package reco.core.excutor;
+package reco.core.excutor.online;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reco.core.*;
+import reco.core.excutor.AbstractExcutor;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * 千人前脸算法数据获取与推荐逻辑执行器
+ * 在线排序的执行器，会调用到tensorflow-java加载的排序模型（异步加载到JVM），主要服务的算法功能为近似最近邻搜索算法
  * @author Tommy.Z
  * @date 2022年10月13日 09:08
  */
-public class UvExcutor extends AbstractExcutor {
-    private final Logger logger = LoggerFactory.getLogger(UvExcutor.class);
+public class OnlineSortingExcutor extends AbstractExcutor {
+    private final Logger logger = LoggerFactory.getLogger(OnlineSortingExcutor.class);
     private String id;
     private String type;
 
-    public UvExcutor(String id, String type) {
+    public OnlineSortingExcutor(String id, String type) {
         this.id = id;
         this.type = type;
     }
@@ -64,7 +64,7 @@ public class UvExcutor extends AbstractExcutor {
 
                     return (context) -> {
                         try {
-                            return new UvExcutor(id,type);
+                            return new OnlineSortingExcutor(id,type);
                         } catch (Exception e1) {
                             return null;
                         }

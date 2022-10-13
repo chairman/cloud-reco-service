@@ -1,6 +1,8 @@
 package reco.common.exception;
 
 /***
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
  * .错误码和错误信息定义类
  *
  * - 1.错误码长度：5个数字
@@ -9,10 +11,7 @@ package reco.common.exception;
  *
  *     10：通用业务
  *     	001：参数格式校验错误（10001）
- *     11：会员业务
- *     12：题目业务
- *     13：内容业务
- *     14：学习业务
+ *     11：内容业务
  ***/
 public enum BizCodeEnum {
     UNKNOWN_EXCEPTION(10000, "系统未知异常"),

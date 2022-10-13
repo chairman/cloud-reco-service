@@ -1,7 +1,6 @@
 package reco.core.excutor;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reco.core.*;
@@ -10,16 +9,16 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 千人前脸算法数据获取与推荐逻辑执行器
+ * 相似推荐算法出来的数据获取执行器（关联推荐算法使用）
  * @author Tommy.Z
  * @date 2022年10月13日 09:08
  */
-public class UvExcutor extends AbstractExcutor {
-    private final Logger logger = LoggerFactory.getLogger(UvExcutor.class);
+public class SvExcutor extends AbstractExcutor {
+    private final Logger logger = LoggerFactory.getLogger(SvExcutor.class);
     private String id;
     private String type;
 
-    public UvExcutor(String id, String type) {
+    public SvExcutor(String id, String type) {
         this.id = id;
         this.type = type;
     }
@@ -39,6 +38,7 @@ public class UvExcutor extends AbstractExcutor {
     public String getType() {
         return type;
     }
+
 
     /**
      * 静态代码块在load CLASS到JVM之后便创建执行器并挂到HashMap里面
@@ -60,11 +60,11 @@ public class UvExcutor extends AbstractExcutor {
                 try {
                     String id = params.get("id").asText();
                     String type = params.get("type").asText();
-                    //还可以有更多别的个性化参数，例如redis中key的前缀(xxx+uid),自定义algoid、自定义执行器名称...等
+                    //还可以有更多别的个性化参数，例如redis中key的前缀(xxx+bookid),自定义algoid、自定义执行器名称...等
 
                     return (context) -> {
                         try {
-                            return new UvExcutor(id,type);
+                            return new SvExcutor(id,type);
                         } catch (Exception e1) {
                             return null;
                         }

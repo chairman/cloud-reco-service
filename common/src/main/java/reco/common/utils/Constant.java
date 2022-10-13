@@ -9,9 +9,8 @@
 package reco.common.utils;
 
 /**
- * 常量
- *
- * @author Mark sunlightcs@gmail.com
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
  */
 public class Constant {
 	/** 超级管理员ID */

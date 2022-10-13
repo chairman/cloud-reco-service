@@ -7,6 +7,11 @@ import reco.core.*;
 import javax.annotation.Resource;
 import java.util.Map;
 
+/**
+ * 推荐服务的入口
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
+ */
 @RestController
 @RequestMapping("/reco/works/v1")
 public class RecoController {
@@ -16,17 +21,6 @@ public class RecoController {
     @Autowired
     StringRedisTemplate redisTemplate;
 
-    @RequestMapping(value="/fetchIds",method = RequestMethod.POST)
-    @ResponseBody
-    public RecoResponse fetchIds(
-            @RequestBody Map<String, Object> params
-    ) {
-        RecoRequest recoRequest = new RecoRequest();
-        recoRequest.setParams(params);
-        Context context = new Context(recoRequest,redisTemplate);
-        return flowEntry.process(context);
-    }
-
     @RequestMapping(value="/fetchIds2",method = RequestMethod.GET)
     @ResponseBody
     public RecoResponse fetchIds2(
@@ -35,7 +29,7 @@ public class RecoController {
         RecoRequest recoRequest = new RecoRequest();
         recoRequest.setParams(params);
         Context context = new Context(recoRequest,redisTemplate);
-        redisTemplate.opsForValue().set("zxj","222222");
+//        redisTemplate.opsForValue().set("zxj","222222");
         return flowEntry.process(context);
     }
 }

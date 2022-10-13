@@ -15,8 +15,8 @@ import java.util.Map;
 
 /**
  * 返回数据
- *
- * @author Mark sunlightcs@gmail.com
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
  */
 public class R extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;

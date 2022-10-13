@@ -7,11 +7,10 @@
  */
 
 package reco.common.utils;
-
 /**
  * 自定义异常
- *
- * @author Mark sunlightcs@gmail.com
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
  */
 public class RRException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

@@ -1,5 +1,10 @@
 package reco.core;
 
+/**
+ * 构造器参数
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
+ */
 public class BuilderParam {
     private String name;
     private Type type;

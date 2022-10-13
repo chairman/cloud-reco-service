@@ -1,8 +1,12 @@
 package reco.core;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
+/**
+ * 上下文
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
+ */
 public class Context {
     private State state;
     RecoRequest recoRequest;

@@ -13,6 +13,11 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 规则配置获取接口
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
+ */
 @RestController
 @RequestMapping("/reco/config/v1")
 public class ConfigController {

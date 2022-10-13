@@ -7,6 +7,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 请求参数之后匹配出来的Map
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
+ */
 public class State {
     private Map<String,Object> cache = null;
     @JsonIgnore

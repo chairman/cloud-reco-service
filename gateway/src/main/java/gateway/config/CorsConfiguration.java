@@ -2,18 +2,22 @@ package gateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
+/**
+ * 跨域处理的配置
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
+ */
 @Configuration
-public class PassJavaCorsConfiguration {
+public class CorsConfiguration {
 
     @Bean
     public CorsWebFilter corsWebFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        org.springframework.web.cors.CorsConfiguration corsConfiguration = new org.springframework.web.cors.CorsConfiguration();
 
         // 配置跨域
         corsConfiguration.addAllowedHeader("*"); // 允许所有请求头跨域

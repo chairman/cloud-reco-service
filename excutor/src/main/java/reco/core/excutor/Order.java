@@ -9,6 +9,11 @@ import reco.core.*;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 顺序执行器(主要为了组织执行器的逻辑)
+ * @author Tommy.Z
+ * @date 2022年10月13日 09:08
+ */
 public class Order extends AbstractExcutor{
     private final Logger logger = LoggerFactory.getLogger(Order.class);
 
@@ -24,6 +29,10 @@ public class Order extends AbstractExcutor{
         this.executors = executors;
     }
 
+    /**
+     * 遍历子执行器，并逐个初始化
+     * @param context
+     */
     @Override
     public void init(Context context){
         if(executors!=null){
@@ -33,6 +42,10 @@ public class Order extends AbstractExcutor{
         }
     }
 
+    /**
+     * 遍历子执行器，并逐个cleanup
+     * @param context
+     */
     @Override
     public void cleanup(Context context){
         if(executors!=null){
@@ -42,6 +55,10 @@ public class Order extends AbstractExcutor{
         }
     }
 
+    /**
+     * 遍历子执行器，并逐个走子执行器里面的逻辑
+     * @param context
+     */
     @Override
     public void process(Context context) {
         if(executors!=null){
@@ -61,6 +78,9 @@ public class Order extends AbstractExcutor{
         return type;
     }
 
+    /**
+     * 静态代码块在load CLASS到JVM之后便创建执行器并挂到HashMap里面
+     */
     static {
         Registry.addExecutor(new Builder<ParameterizedExecutor>() {
             private final Logger logger = LoggerFactory.getLogger(getClass());
