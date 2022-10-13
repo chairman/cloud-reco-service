@@ -5,7 +5,7 @@
 	<groupId>com.reco.passjava</groupId>
 	<artifactId>cloud-reco-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>passjava</name>
+	<name>reco</name>
 	<description>推荐服务</description>
 	<packaging>pom</packaging>
 
