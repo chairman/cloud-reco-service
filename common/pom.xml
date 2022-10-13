@@ -28,10 +28,10 @@
     <dependencies>
 
         <!-- nacos discovery 服务发现组件 暂时把nacos相关注掉 -->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
 
         <!--  mybatis-plus DAO层工具 https://mp.baomidou.com/  -->
 <!--        <dependency>-->
