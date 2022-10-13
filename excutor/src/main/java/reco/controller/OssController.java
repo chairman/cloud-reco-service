@@ -21,11 +21,11 @@ public class OssController {
 
     @RequestMapping("/getPolicy")
     public R getPolicy() {
-        User user = new User();
-        user.setId(100022L);
-        user.setUserName("zhencw");
-        user.setPassWord("zzzz");
-        mongoTemplate.save(user);
+//        User user = new User();
+//        user.setId(100022L);
+//        user.setUserName("zhencw");
+//        user.setPassWord("zzzz");
+//        mongoTemplate.save(user);
         idsRepository.getNext("t_base_rules");
         return R.ok().put("data", "");
     }
